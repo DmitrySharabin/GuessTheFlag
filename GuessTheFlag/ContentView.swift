@@ -9,57 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-//        ZStack {
-//            Text("Your content")
-//        }
-//        .background(.red)
+//        LinearGradient(gradient: Gradient(colors: [.white, .black]), startPoint: .top, endPoint: .bottom)
         
-//        ZStack {
-//            Text("Your content")
-//                .background(.red)
-//        }
+//        LinearGradient(gradient: Gradient(stops: [
+//            Gradient.Stop(color: .white, location: 0.45),
+//            Gradient.Stop(color: .black, location: 0.55)
+//        ]), startPoint: .top, endPoint: .bottom)
         
-//        ZStack {
-//            Color.red
-//            Text("Your content")
-//        }
+//        LinearGradient(gradient: Gradient(stops: [
+//            .init(color: .white, location: 0.45),
+//            .init(color: .black, location: 0.55)
+//        ]), startPoint: .top, endPoint: .bottom)
         
-//        ZStack {
-//            Color.red
-//                .frame(width: 200, height: 200)
-//            Text("Your content")
-//        }
+//        RadialGradient(gradient: Gradient(colors: [.blue, .black]), center: .center, startRadius: 20, endRadius: 200)
         
-//        ZStack {
-////            Color.red
-////            Color.blue
-////            Color.indigo
-////            Color.primary
-////            Color.secondary
-//            Color(red: 1, green: 0.8, blue: 0)
-//                .frame(minWidth: 200, maxWidth: .infinity, maxHeight: 200)
-//            Text("Your content")
-//        }
-        
-//        ZStack {
-//            Color.red
-//            Text("Your content")
-//        }
-//        .ignoresSafeArea()
-        
-        ZStack {
-            VStack(spacing: 0) {
-                Color.red
-                Color.blue
-            }
-            
-            Text("Your content")
-//                .foregroundColor(.secondary)
-                .foregroundStyle(.secondary)
-                .padding(50)
-                .background(.ultraThinMaterial)
-        }
-        .ignoresSafeArea()
+        AngularGradient(gradient: Gradient(colors: [.red, .yellow, .green, .blue, .purple, .red]), center: .center)
     }
 }
 
