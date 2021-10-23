@@ -9,56 +9,57 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-//        VStack(spacing: 20) {
-//            Text("Hello, world!")
-//            Text("This is inside a stack")
+//        ZStack {
+//            Text("Your content")
+//        }
+//        .background(.red)
+        
+//        ZStack {
+//            Text("Your content")
+//                .background(.red)
 //        }
         
-//        VStack(alignment: .leading) {
-//            Text("Hello, world!")
-//            Text("This is inside a stack")
+//        ZStack {
+//            Color.red
+//            Text("Your content")
 //        }
         
-//        VStack {
-//            Text("First")
-//            Text("Second")
-//            Text("Third")
-//            Spacer()
+//        ZStack {
+//            Color.red
+//                .frame(width: 200, height: 200)
+//            Text("Your content")
 //        }
         
-//        VStack {
-//            Spacer()
-//            Text("First")
-//            Text("Second")
-//            Text("Third")
-//            Spacer()
-//            Spacer()
+//        ZStack {
+////            Color.red
+////            Color.blue
+////            Color.indigo
+////            Color.primary
+////            Color.secondary
+//            Color(red: 1, green: 0.8, blue: 0)
+//                .frame(minWidth: 200, maxWidth: .infinity, maxHeight: 200)
+//            Text("Your content")
 //        }
         
-//        ZStack(alignment: .top) {
-//            Text("Hello, world!")
-//            Text("This is inside a stack")
+//        ZStack {
+//            Color.red
+//            Text("Your content")
 //        }
+//        .ignoresSafeArea()
         
-        VStack {
-            HStack {
-                Text("1")
-                Text("2")
-                Text("3")
+        ZStack {
+            VStack(spacing: 0) {
+                Color.red
+                Color.blue
             }
             
-            HStack {
-                Text("4")
-                Text("5")
-                Text("6")
-            }
-            
-            HStack {
-                Text("7")
-                Text("8")
-                Text("9")
-            }
+            Text("Your content")
+//                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
+                .padding(50)
+                .background(.ultraThinMaterial)
         }
+        .ignoresSafeArea()
     }
 }
 
