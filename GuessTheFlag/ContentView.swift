@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var score = 0
     @State private var showingScore = false
     @State private var scoreTitle = ""
     
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
     @State private var correctAnswer = Int.random(in: 0...2)
+    
+    @State private var questionsLeft = 8
+    @State private var showingRestartGame = false
     
     var body: some View {
         ZStack {
@@ -58,7 +62,7 @@ struct ContentView: View {
                 Spacer()
                 Spacer()
                 
-                Text("Score: ???")
+                Text("Score: \(score)")
                     .foregroundColor(.white)
                     .font(.title.bold())
                 
@@ -69,23 +73,43 @@ struct ContentView: View {
         .alert(scoreTitle, isPresented: $showingScore) {
             Button("Continue", action: askQuestion)
         } message: {
-            Text("Your score is ???")
+            Text("Your score is \(score).")
+        }
+        .alert(scoreTitle, isPresented: $showingRestartGame) {
+            Button("Restart", action: reset)
+        } message: {
+            Text("Game over! Your score is \(score).")
         }
     }
     
     func flagTapped(_ number: Int) {
         if number == correctAnswer {
             scoreTitle = "Correct"
+            score += 1
         } else {
-            scoreTitle = "Wrong"
+            scoreTitle = "Wrong! That’s the flag of \(countries[number])"
+            if score > 0 {
+                score -= 1
+            }
         }
         
-        showingScore = true
+        questionsLeft -= 1
+        if questionsLeft == 0 {
+            showingRestartGame = true
+        } else {
+            showingScore = true
+        }
     }
     
     func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+    }
+    
+    func reset() {
+        questionsLeft = 8
+        score = 0
+        askQuestion()
     }
 }
 
